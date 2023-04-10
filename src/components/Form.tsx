@@ -18,8 +18,8 @@ type DataTypes = {
 }[];
 
 type FormData = {
-  setWordData: React.Dispatch<SetStateAction<DataTypes>>;
-  setFetchError: React.Dispatch<SetStateAction<Error>>;
+  setWordData: React.Dispatch<SetStateAction<DataTypes | undefined>>;
+  setFetchError: React.Dispatch<SetStateAction<Error | null>>;
 };
 
 const Form = ({ setWordData, setFetchError }: FormData) => {
