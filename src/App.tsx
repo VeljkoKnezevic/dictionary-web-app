@@ -1,46 +1,28 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from "react";
 import Header from "./components/Header";
 import Form from "./components/Form";
+import AudioComponent from "./components/AudioComponent";
 import { DataTypes } from "./DataTypes";
-
-enum SelectEnum {
-  Sansserif = "Sans-Serif",
-  Serif = "Serif",
-  Mono = "Mono",
-}
 
 const App = () => {
   const [isChecked, setIsChecked] = useState(false);
-  const [selected, setSelected] = useState<SelectEnum>(SelectEnum.Sansserif);
-  const [fetchError, setFetchError] = useState<Error | null>(null);
   const [wordData, setWordData] = useState<DataTypes>();
 
-  const handlePlayClick = () => {};
-
-  if (fetchError) {
-    return (
-      <div>There was an error when fetching data: {fetchError.message}</div>
-    );
-  }
   return (
     <>
       <Header isChecked={isChecked} setIsChecked={setIsChecked} />
       <main>
         <h1 className="visuallyhidden">Dictionary web app</h1>
-        <Form setWordData={setWordData} setFetchError={setFetchError} />
+        <Form setWordData={setWordData} />
         {wordData && (
           <div className="data">
             <div className="data__wrapper">
               <h2 className="data__heading">{wordData[0].word}</h2>
               <p className="data__pron">{wordData[0].phonetic}</p>
-              <button className="data__audio" type="button">
-                <img
-                  src="/assets/images/icon-play.svg"
-                  alt="Play the audio of the word"
-                />
-              </button>
+              <AudioComponent wordData={wordData} />
             </div>
             {wordData.map((word) => {
               return word.meanings.map((meaning, index) => {

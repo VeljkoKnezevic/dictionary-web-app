@@ -3,21 +3,15 @@ import { DataTypes } from "../DataTypes";
 
 type FormData = {
   setWordData: React.Dispatch<SetStateAction<DataTypes | undefined>>;
-  setFetchError: React.Dispatch<SetStateAction<Error | null>>;
 };
 
-enum ErrorMessage {
-  checking = "Checking...",
-  empty = "",
-  message = "Whoops, can't be empty...",
-}
-
-const Form = ({ setWordData, setFetchError }: FormData) => {
-  const [empty, setEmpty] = useState<string>(ErrorMessage.checking);
+const Form = ({ setWordData }: FormData) => {
+  const [empty, setEmpty] = useState<boolean>(false);
 
   const fetchData = async (search: string) => {
-    const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${search}`;
     try {
+      const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${search}`;
+
       const response = await fetch(url, {
         mode: "cors",
         headers: {
@@ -28,7 +22,8 @@ const Form = ({ setWordData, setFetchError }: FormData) => {
 
       setWordData(data);
     } catch (err) {
-      setFetchError(err as Error);
+      // eslint-disable-next-line no-console
+      console.log(err);
     }
   };
 
@@ -42,20 +37,17 @@ const Form = ({ setWordData, setFetchError }: FormData) => {
     const form = e.target as HTMLFormElement;
     const input = form.elements[0] as HTMLInputElement;
 
-    if (!input.value) {
-      setEmpty(ErrorMessage.message);
-    } else {
-      setEmpty(ErrorMessage.empty);
-    }
-
-    if (empty === ErrorMessage.empty) {
+    if (input.value) {
       fetchData(input.value);
+      setEmpty(false);
+    } else {
+      setEmpty(true);
     }
   };
   return (
     <form onSubmit={(e) => handleSearch(e)}>
       <input name="search" type="text" />
-      {empty === ErrorMessage.message && <p>{empty}</p>}
+      {empty && <p>Whoops, can&apos;t be empty</p>}
       <button type="submit">
         <img src="/assets/images/icon-search.svg" alt="Search" />
       </button>
