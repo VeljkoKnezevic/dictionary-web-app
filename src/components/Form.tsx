@@ -1,21 +1,5 @@
 import { useEffect, SetStateAction } from "react";
-
-type DataTypes = {
-  word: string;
-  phonetic: string;
-  phonetics: {
-    text: string;
-    audio: string;
-  };
-  meaning: {
-    partOfSpeech: string;
-    definitions: {
-      definition: string;
-      example: string;
-      synonims: string[];
-    };
-  };
-}[];
+import { DataTypes } from "../DataTypes";
 
 type FormData = {
   setWordData: React.Dispatch<SetStateAction<DataTypes | undefined>>;
@@ -24,10 +8,14 @@ type FormData = {
 
 const Form = ({ setWordData, setFetchError }: FormData) => {
   const fetchData = async (search: string) => {
+    const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${search}`;
     try {
-      const response = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${search}`
-      );
+      const response = await fetch(url, {
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       const data = await response.json();
 
       setWordData(data);
@@ -39,6 +27,7 @@ const Form = ({ setWordData, setFetchError }: FormData) => {
   useEffect(() => {
     fetchData("keyboard");
   }, []);
+
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
