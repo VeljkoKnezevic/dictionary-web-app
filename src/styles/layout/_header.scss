@@ -1,0 +1,29 @@
+@use "../utils/" as u;
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-inline: u.rem(24);
+
+  &__logo {
+    margin-inline-end: auto;
+  }
+
+  &__toggle {
+    margin-inline-end: u.rem(12);
+  }
+
+  &__select {
+    margin-inline-end: u.rem(33);
+  }
+}
+
+.dark {
+  background-color: var(--vampire-black);
+  min-height: 100vh;
+}
+
+.light {
+  background-color: var(--white);
+  min-height: 100vh;
+}

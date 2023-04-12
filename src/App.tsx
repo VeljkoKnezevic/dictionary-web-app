@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable react/no-array-index-key */
+import "./styles/styles.scss";
 import React, { useState } from "react";
 import Header from "./components/Header";
 import Form from "./components/Form";
@@ -12,7 +13,7 @@ const App = () => {
   const [wordData, setWordData] = useState<DataTypes>();
 
   return (
-    <>
+    <div className={isChecked ? "dark" : "light"}>
       <Header isChecked={isChecked} setIsChecked={setIsChecked} />
       <main>
         <h1 className="visuallyhidden">Dictionary web app</h1>
@@ -64,7 +65,7 @@ const App = () => {
           </div>
         )}
       </main>
-    </>
+    </div>
   );
 };
 
