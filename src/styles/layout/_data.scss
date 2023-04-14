@@ -1,1 +1,93 @@
 @use "../utils/" as u;
+
+.data {
+  margin-inline: u.rem(24);
+  margin-block-start: u.rem(24);
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__heading {
+    font-weight: 700;
+    font-size: u.rem(32);
+    line-height: u.rem(39);
+  }
+
+  &__pron {
+    font-weight: 400;
+    font-size: u.rem(18);
+    line-height: u.rem(24);
+    margin-block-start: u.rem(8);
+  }
+
+  &__button {
+    background-image: url(/assets/images/icon-play.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: u.rem(48);
+    height: u.rem(48);
+    border: none;
+    background-color: transparent;
+    margin-inline-start: auto;
+    margin-block-start: u.rem(10);
+  }
+
+  &__meaning {
+    margin-block-start: u.rem(32);
+  }
+
+  &__part-of-speech {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: calc(100% - 60px);
+      height: 1px;
+      top: 50%;
+
+      left: 60px;
+    }
+  }
+}
+
+.light {
+  .data {
+    &__heading {
+      color: var(--charleston-green);
+    }
+    &__pron {
+      color: var(--lavander);
+    }
+
+    &__part-of-speech {
+      color: var(--charleston-green);
+      &::after {
+        background: var(--bright-grey);
+      }
+    }
+  }
+}
+
+.dark {
+  .data {
+    &__heading {
+      color: var(--white);
+    }
+    &__pron {
+      color: var(--lavander);
+    }
+    &__part-of-speech {
+      color: var(--white);
+
+      &::after {
+        background-color: var(--black-olive);
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@use "../utils/" as u;
+
+.react-select {
+  &__control {
+    border: none !important;
+    border-right: 1px solid var(--bright-grey) !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+  }
+
+  &__value-container {
+    padding: 0 !important;
+    padding-inline-end: u.rem(10) !important;
+  }
+
+  &__indicator-separator {
+    display: none !important;
+  }
+
+  &__option {
+    &:nth-child(1) {
+      font-family: inter;
+    }
+    &:nth-child(2) {
+      font-family: lora;
+    }
+    &:nth-child(3) {
+      font-family: inconsolata;
+    }
+  }
+
+  &__menu {
+    background: var(--white) !important;
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1) !important;
+    border-radius: u.rem(16) !important;
+  }
+
+  &__indicator {
+    padding: 0 !important;
+    padding-inline-end: u.rem(16) !important;
+  }
+
+  &__placeholder {
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    line-height: 24px !important;
+  }
+}
+
+.light {
+  .react-select {
+    &__indicator {
+      svg {
+        fill: var(--lavander);
+      }
+    }
+
+    &__placeholder {
+      color: var(--charleston-green);
+    }
+  }
+}
+
+.dark {
+  .react-select {
+    &__indicator {
+      svg {
+        fill: var(--lavander);
+      }
+    }
+
+    &__placeholder {
+      color: var(--white);
+    }
+  }
+}

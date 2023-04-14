@@ -23,12 +23,12 @@ const AudioComponent = ({ wordData }: WordDataTypes) => {
   };
 
   return (
-    <button type="button" onClick={handlePlayClick}>
-      <img
-        src="/assets/images/icon-play.svg"
-        alt="Play the pronunciation of the word"
-      />
-    </button>
+    <button
+      type="button"
+      onClick={handlePlayClick}
+      className="data__button"
+      aria-label="play sound"
+    ></button>
   );
 };
 

@@ -1,1 +1,70 @@
 @use "../utils/" as u;
+
+.form {
+  display: flex;
+  margin-inline: u.rem(24);
+  margin-block-start: u.rem(24);
+  border-radius: u.rem(16);
+  padding: u.rem(16) u.rem(24);
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid transparent;
+  position: relative;
+
+  &__input {
+    border: none;
+    font-weight: 700;
+    font-size: u.rem(16);
+    line-height: u.rem(17);
+  }
+
+  &__error {
+    font-weight: 400;
+    font-size: u.rem(14);
+    line-height: u.rem(18);
+    color: var(--red);
+    position: absolute;
+    bottom: -22px;
+    left: 13px;
+  }
+  &__button {
+    background-image: url("/assets/images/icon-search.svg");
+    border: none;
+    background-size: cover;
+    padding: u.rem(7.75);
+    background-color: transparent;
+  }
+}
+
+.light {
+  .form {
+    background-color: var(--cultured);
+
+    &__input {
+      color: var(--charleston-green);
+      background-color: transparent;
+
+      &:focus {
+        outline-color: var(--lavander);
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.dark {
+  .form {
+    background: var(--eerie-black);
+
+    &__input {
+      background-color: transparent;
+      color: var(--white);
+      &:focus {
+        outline-style: solid;
+        outline-width: 2px;
+        outline-color: var(--lavander);
+        border-radius: 5px;
+      }
+    }
+  }
+}

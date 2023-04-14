@@ -44,13 +44,25 @@ const Form = ({ setWordData }: FormData) => {
       setEmpty(true);
     }
   };
+
   return (
-    <form onSubmit={(e) => handleSearch(e)}>
-      <input name="search" type="text" />
-      {empty && <p>Whoops, can&apos;t be empty</p>}
-      <button type="submit">
-        <img src="/assets/images/icon-search.svg" alt="Search" />
-      </button>
+    <form
+      style={{ borderColor: empty ? "red" : "transparent" }}
+      className="form"
+      onSubmit={(e) => handleSearch(e)}
+    >
+      <input
+        className="form__input"
+        autoComplete="off"
+        name="search"
+        type="text"
+      />
+      {empty && <p className="form__error">Whoops, can&apos;t be empty</p>}
+      <button
+        className="form__button"
+        type="submit"
+        aria-label="search"
+      ></button>
     </form>
   );
 };

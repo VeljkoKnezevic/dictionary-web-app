@@ -1,0 +1,42 @@
+@use "../utils/" as u;
+.react-toggle {
+  height: 20px !important;
+  width: 40px !important;
+
+  &-track {
+    height: 20px !important;
+    width: 40px !important;
+  }
+  &-thumb {
+    height: 14px !important;
+    width: 14px !important;
+    top: 3px !important;
+    left: 3px !important;
+    border: none !important;
+  }
+  &--focus {
+    .react-toggle-track {
+      background-color: var(--sonic-silver) !important;
+    }
+  }
+}
+
+.react-toggle--checked .react-toggle-thumb {
+  left: 23px !important;
+}
+
+.light {
+  .react-toggle {
+    &-track {
+      background-color: var(--sonic-silver);
+    }
+  }
+}
+
+.dark {
+  .react-toggle--checked {
+    .react-toggle-track {
+      background-color: var(--lavander) !important;
+    }
+  }
+}

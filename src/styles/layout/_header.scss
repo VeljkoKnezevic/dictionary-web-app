@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   margin-inline: u.rem(24);
+  padding-block-start: u.rem(24);
 
   &__logo {
     margin-inline-end: auto;
@@ -14,16 +15,21 @@
   }
 
   &__select {
-    margin-inline-end: u.rem(33);
+    margin-inline-end: u.rem(16);
   }
-}
-
-.dark {
-  background-color: var(--vampire-black);
-  min-height: 100vh;
 }
 
 .light {
   background-color: var(--white);
   min-height: 100vh;
+}
+
+.dark {
+  background-color: var(--vampire-black);
+  min-height: 100vh;
+
+  .header__moon {
+    filter: invert(38%) sepia(72%) saturate(4592%) hue-rotate(257deg)
+      brightness(96%) contrast(93%);
+  }
 }

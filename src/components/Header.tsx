@@ -40,7 +40,9 @@ const Header = ({ isChecked, setIsChecked }: HeaderTypes) => {
         alt="Dictionary logo"
       />
       <Select
-        className="header__select"
+        className="react-select-container header__select"
+        classNamePrefix="react-select"
+        placeholder={selected}
         value={selected}
         options={options}
         onChange={(option) => setSelected(option.value)}
@@ -49,9 +51,12 @@ const Header = ({ isChecked, setIsChecked }: HeaderTypes) => {
         className="header__toggle"
         checked={isChecked}
         onChange={() => setIsChecked(!isChecked)}
+        icons={false}
+        width={40}
+        height={20}
       />
       <img
-        className="header__mode-icon"
+        className="header__moon"
         src="/assets/images/icon-moon.svg"
         alt="Moon"
       />
