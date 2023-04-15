@@ -38,26 +38,21 @@
     margin-block-start: u.rem(32);
   }
 
-  &__meaning + &__meaning {
-    border-block-end: 1px solid;
-    padding-block-end: u.rem(32);
-  }
-
   &__part-of-speech {
     font-style: italic;
     font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: u.rem(18);
+    line-height: u.rem(22);
     position: relative;
 
     &::after {
       content: "";
       position: absolute;
-      width: calc(100% - 60px);
-      height: 1px;
+      width: calc(100% - u.rem(60));
+      height: u.rem(1);
       top: 50%;
 
-      left: 60px;
+      left: u.rem(60);
     }
   }
 
@@ -117,7 +112,9 @@
   }
 
   &__source {
-    margin-block-start: u.rem(24);
+    margin-block-start: u.rem(57);
+    border-block-start: 1px solid;
+    padding-block-start: u.rem(24);
     &__text {
       display: block;
       text-decoration: underline;
@@ -158,10 +155,6 @@
       }
     }
 
-    &__meaning {
-      border-color: var(--bright-grey);
-    }
-
     &__synonyms {
       &__text {
         color: var(--lavander);
@@ -179,6 +172,7 @@
     }
 
     &__source {
+      border-color: var(--bright-grey);
       &__text {
         color: var(--sonic-silver);
       }
@@ -206,10 +200,6 @@
       }
     }
 
-    &__meaning {
-      border-color: var(--black-olive);
-    }
-
     &__synonyms {
       &__text {
         color: var(--lavander);
@@ -227,6 +217,7 @@
     }
 
     &__source {
+      border-color: var(--black-olive);
       &__text {
         color: var(--sonic-silver);
       }
