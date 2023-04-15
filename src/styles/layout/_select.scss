@@ -42,8 +42,12 @@
 
   &__placeholder {
     font-weight: 700 !important;
-    font-size: 14px !important;
-    line-height: 24px !important;
+    font-size: u.rem(14) !important;
+    line-height: u.rem(24) !important;
+
+    @include u.breakpoint(medium) {
+      font-size: u.rem(18) !important;
+    }
   }
 }
 

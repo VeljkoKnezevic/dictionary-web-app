@@ -6,16 +6,29 @@
   margin-inline: u.rem(24);
   padding-block-start: u.rem(24);
 
+  @include u.breakpoint(medium) {
+    padding-block-start: u.rem(58);
+    margin-inline: u.rem(40);
+  }
+
   &__logo {
     margin-inline-end: auto;
   }
 
   &__toggle {
     margin-inline-end: u.rem(12);
+
+    @include u.breakpoint(medium) {
+      margin-inline-end: u.rem(20);
+    }
   }
 
   &__select {
     margin-inline-end: u.rem(16);
+
+    @include u.breakpoint(medium) {
+      margin-inline-end: u.rem(26);
+    }
   }
 }
 

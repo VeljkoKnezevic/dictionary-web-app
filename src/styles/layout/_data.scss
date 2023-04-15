@@ -5,14 +5,26 @@
   margin-block-start: u.rem(24);
   padding-block-end: u.rem(85);
 
+  @include u.breakpoint(medium) {
+    margin-inline: u.rem(40);
+    margin-block-start: u.rem(43);
+    padding-block-end: u.rem(118);
+  }
+
   &__wrapper {
     display: flex;
+    align-items: center;
   }
 
   &__heading {
     font-weight: 700;
     font-size: u.rem(32);
     line-height: u.rem(39);
+
+    @include u.breakpoint(medium) {
+      font-size: u.rem(64);
+      line-height: u.rem(77);
+    }
   }
 
   &__pron {
@@ -20,6 +32,11 @@
     font-size: u.rem(18);
     line-height: u.rem(24);
     margin-block-start: u.rem(8);
+
+    @include u.breakpoint(medium) {
+      font-size: u.rem(24);
+      line-height: u.rem(29);
+    }
   }
 
   &__button {
@@ -31,11 +48,19 @@
     border: none;
     background-color: transparent;
     margin-inline-start: auto;
-    margin-block-start: u.rem(10);
+
+    @include u.breakpoint(medium) {
+      width: u.rem(75);
+      height: u.rem(75);
+    }
   }
 
   &__meaning {
     margin-block-start: u.rem(32);
+
+    @include u.breakpoint(medium) {
+      margin-block-start: u.rem(40);
+    }
   }
 
   &__part-of-speech {
@@ -51,8 +76,17 @@
       width: calc(100% - u.rem(60));
       height: u.rem(1);
       top: 50%;
-
       left: u.rem(60);
+    }
+
+    @include u.breakpoint(medium) {
+      font-size: u.rem(24);
+      line-height: u.rem(29);
+
+      &::after {
+        left: u.rem(80);
+        width: calc(100% - u.rem(80));
+      }
     }
   }
 
@@ -62,6 +96,12 @@
     line-height: u.rem(19);
     color: var(--sonic-silver);
     margin-block-start: u.rem(32);
+
+    @include u.breakpoint(medium) {
+      margin-block-start: u.rem(40);
+      font-size: u.rem(20);
+      line-height: u.rem(24);
+    }
 
     &--synonyms {
       margin: 0;
@@ -76,10 +116,20 @@
     column-gap: u.rem(24);
     row-gap: u.rem(5);
 
+    @include u.breakpoint(medium) {
+      column-gap: u.rem(22);
+      margin-block-start: u.rem(40);
+    }
+
     &__text {
       font-weight: 700;
       font-size: u.rem(16);
       line-height: u.rem(19);
+
+      @include u.breakpoint(medium) {
+        font-size: u.rem(20);
+        line-height: u.rem(24);
+      }
     }
   }
 
@@ -87,6 +137,11 @@
     padding-inline-start: u.rem(25);
     margin: 0;
     margin-block-start: u.rem(17);
+    list-style-position: outside;
+
+    @include u.breakpoint(medium) {
+      padding-inline-start: u.rem(40);
+    }
 
     &__item + &__item {
       margin-block-start: u.rem(13);
@@ -95,6 +150,11 @@
     &__item {
       font-size: u.rem(15);
       line-height: u.rem(24);
+
+      @include u.breakpoint(medium) {
+        font-size: u.rem(18);
+        line-height: u.rem(24);
+      }
 
       &::marker {
         color: var(--lavander);
@@ -109,12 +169,27 @@
     line-height: u.rem(24);
     padding-inline-start: u.rem(25);
     margin-block-start: u.rem(13);
+
+    @include u.breakpoint(medium) {
+      font-size: u.rem(18);
+      line-height: u.rem(24);
+      padding-inline-start: u.rem(40);
+    }
   }
 
   &__source {
     margin-block-start: u.rem(57);
     border-block-start: 1px solid;
     padding-block-start: u.rem(24);
+
+    @include u.breakpoint(medium) {
+      margin-block-start: u.rem(60);
+      padding-block-start: u.rem(20);
+      display: flex;
+      align-items: center;
+      gap: u.rem(20);
+    }
+
     &__text {
       display: block;
       text-decoration: underline;
@@ -130,6 +205,10 @@
       line-height: u.rem(17);
       text-decoration-line: underline;
       margin-block-start: u.rem(8);
+
+      @include u.breakpoint(medium) {
+        margin-block-start: 0;
+      }
 
       &::after {
         content: url(/assets/images/icon-new-window.svg);
