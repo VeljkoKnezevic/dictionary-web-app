@@ -11,15 +11,17 @@ type SelectTypes = {
 type HeaderTypes = {
   isChecked: boolean;
   setIsChecked: React.Dispatch<React.SetStateAction<boolean>>;
+  error: boolean;
 };
 
-const Header = ({ isChecked, setIsChecked }: HeaderTypes) => {
+const Header = ({ isChecked, setIsChecked, error }: HeaderTypes) => {
   const options: SelectTypes = [
-    { value: "Sans Serif", label: "sans-serif" },
-    { value: "Serif", label: "serif" },
-    { value: "Mono", label: "mono" },
+    { value: "Sans Serif", label: "Sans Serif" },
+    { value: "Serif", label: "Serif" },
+    { value: "Mono", label: "Mono" },
   ];
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [selected, setSelected] = useState<any>("sans-serif");
 
   useEffect(() => {
@@ -31,6 +33,16 @@ const Header = ({ isChecked, setIsChecked }: HeaderTypes) => {
       document.body.style.fontFamily = "inconsolata";
     }
   }, [selected]);
+
+  useEffect(() => {
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    if (prefersDark) {
+      setIsChecked(true);
+    }
+  }, []);
 
   return (
     <header className="header">

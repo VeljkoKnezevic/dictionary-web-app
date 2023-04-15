@@ -5,9 +5,10 @@ import { DataTypes } from "../DataTypes";
 
 type DataType = {
   wordData: DataTypes;
+  error: boolean;
 };
 
-const Data = ({ wordData }: DataType) => {
+const Data = ({ wordData, error }: DataType) => {
   return (
     <section className="data">
       <div className="data__wrapper">

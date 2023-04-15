@@ -3,9 +3,11 @@ import { DataTypes } from "../DataTypes";
 
 type FormData = {
   setWordData: React.Dispatch<SetStateAction<DataTypes | undefined>>;
+  error: boolean;
+  setError: React.Dispatch<SetStateAction<boolean>>;
 };
 
-const Form = ({ setWordData }: FormData) => {
+const Form = ({ setWordData, error, setError }: FormData) => {
   const [empty, setEmpty] = useState<boolean>(false);
 
   const fetchData = async (search: string) => {
@@ -18,9 +20,14 @@ const Form = ({ setWordData }: FormData) => {
           "Content-Type": "application/json",
         },
       });
-      const data = await response.json();
 
-      setWordData(data);
+      if (response.status !== 200) {
+        setError(true);
+      } else {
+        const data = await response.json();
+        setError(false);
+        setWordData(data);
+      }
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log(err);

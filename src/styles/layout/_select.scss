@@ -6,9 +6,19 @@
     border-right: 1px solid var(--bright-grey) !important;
     background-color: transparent !important;
     border-radius: 0 !important;
+
     &:hover {
       cursor: pointer;
     }
+
+    &--is-focused {
+      box-shadow: none !important;
+      user-select: none !important;
+    }
+  }
+
+  &__input {
+    color: transparent !important;
   }
 
   &__value-container {
@@ -21,6 +31,9 @@
   }
 
   &__option {
+    background-color: transparent !important;
+    padding-inline: 0 !important;
+
     &:nth-child(1) {
       font-family: inter;
     }
@@ -30,12 +43,26 @@
     &:nth-child(3) {
       font-family: inconsolata;
     }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--is-focused {
+      background-color: transparent !important;
+    }
   }
 
   &__menu {
-    background: var(--white) !important;
-    box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1) !important;
     border-radius: u.rem(16) !important;
+    width: 183px !important;
+    padding: u.rem(24) u.rem(72) u.rem(24) u.rem(21);
+    right: 0 !important;
+  }
+
+  &__option {
+    font-size: u.rem(18) !important;
+    line-height: u.rem(24) !important;
   }
 
   &__indicator {
@@ -65,6 +92,18 @@
     &__placeholder {
       color: var(--charleston-green);
     }
+
+    &__menu {
+      background: var(--white);
+      box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    &__option {
+      color: var(--charleston-green);
+      &:hover {
+        color: var(--lavander);
+      }
+    }
   }
 }
 
@@ -78,6 +117,19 @@
 
     &__placeholder {
       color: var(--white);
+    }
+
+    &__menu {
+      background: var(--eerie-black);
+      box-shadow: 0px 5px 30px var(--lavander);
+    }
+
+    &__option {
+      color: var(--white);
+
+      &:hover {
+        color: var(--lavander);
+      }
     }
   }
 }

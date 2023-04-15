@@ -8,14 +8,15 @@ import Data from "./components/Data";
 const App = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [wordData, setWordData] = useState<DataTypes>();
+  const [error, setError] = useState<boolean>(false);
 
   return (
     <div className={isChecked ? "dark" : "light"}>
-      <Header isChecked={isChecked} setIsChecked={setIsChecked} />
+      <Header error={error} isChecked={isChecked} setIsChecked={setIsChecked} />
       <main>
         <h1 className="visuallyhidden">Dictionary web app</h1>
-        <Form setWordData={setWordData} />
-        {wordData && <Data wordData={wordData} />}
+        <Form error={error} setError={setError} setWordData={setWordData} />
+        {wordData && <Data error={error} wordData={wordData} />}
       </main>
     </div>
   );
