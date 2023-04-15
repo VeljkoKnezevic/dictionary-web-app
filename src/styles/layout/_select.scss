@@ -6,6 +6,9 @@
     border-right: 1px solid var(--bright-grey) !important;
     background-color: transparent !important;
     border-radius: 0 !important;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__value-container {

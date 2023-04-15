@@ -59,6 +59,11 @@
       width: u.rem(75);
       height: u.rem(75);
     }
+
+    &:hover {
+      cursor: pointer;
+      background-image: url(/assets/images/icon-play-hover.svg);
+    }
   }
 
   &__meaning {
@@ -135,6 +140,10 @@
       @include u.breakpoint(medium) {
         font-size: u.rem(20);
         line-height: u.rem(24);
+      }
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
       }
     }
   }
