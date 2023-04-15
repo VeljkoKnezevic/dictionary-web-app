@@ -11,6 +11,11 @@
     margin-inline: u.rem(40);
   }
 
+  @include u.breakpoint(large) {
+    max-width: u.rem(737);
+    margin-inline: auto;
+  }
+
   &__logo {
     margin-inline-end: auto;
   }

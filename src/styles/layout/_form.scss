@@ -17,6 +17,11 @@
     padding: u.rem(20) u.rem(24);
   }
 
+  @include u.breakpoint(large) {
+    margin-inline: auto;
+    max-width: u.rem(737);
+  }
+
   &__input {
     border: none;
     font-weight: 700;

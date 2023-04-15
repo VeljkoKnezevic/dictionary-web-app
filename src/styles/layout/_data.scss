@@ -11,6 +11,12 @@
     padding-block-end: u.rem(118);
   }
 
+  @include u.breakpoint(large) {
+    max-width: u.rem(737);
+    margin-inline: auto;
+    padding-block-end: u.rem(124);
+  }
+
   &__wrapper {
     display: flex;
     align-items: center;
