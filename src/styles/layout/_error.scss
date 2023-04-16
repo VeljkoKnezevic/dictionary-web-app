@@ -1,0 +1,71 @@
+@use "../utils/" as u;
+
+.error {
+  margin-inline: u.rem(24);
+  margin-block-start: u.rem(100);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include u.breakpoint(medium) {
+    margin-inline: u.rem(40);
+    margin-block-start: u.rem(132);
+  }
+
+  @include u.breakpoint(xlarge) {
+    max-width: u.rem(737);
+    margin-inline: auto;
+  }
+
+  &__emoji {
+    font-size: u.rem(64);
+    line-height: u.rem(75);
+  }
+
+  &__heading {
+    font-weight: 700;
+    font-size: u.rem(18);
+    line-height: u.rem(22);
+    margin-block-start: u.rem(20);
+
+    @include u.breakpoint(medium) {
+      font-size: u.rem(20);
+      line-height: u.rem(24);
+    }
+  }
+
+  &__para {
+    font-weight: 400;
+    font-size: u.rem(16);
+    line-height: u.rem(20);
+    margin-block-start: u.rem(20);
+    text-align: center;
+
+    @include u.breakpoint(medium) {
+      font-size: u.rem(18);
+      line-height: u.rem(24);
+    }
+  }
+}
+
+.light {
+  .error {
+    &__heading {
+      color: var(--charleston-green);
+    }
+    &__para {
+      color: var(--sonic-silver);
+    }
+  }
+}
+
+.dark {
+  .error {
+    &__heading {
+      color: var(--white);
+    }
+    &__para {
+      color: var(--sonic-silver);
+    }
+  }
+}

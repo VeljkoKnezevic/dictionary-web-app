@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Form from "./components/Form";
 import { DataTypes } from "./DataTypes";
 import Data from "./components/Data";
+import ErrorComponent from "./components/ErrorComponent";
 
 const App = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -15,8 +16,9 @@ const App = () => {
       <Header error={error} isChecked={isChecked} setIsChecked={setIsChecked} />
       <main>
         <h1 className="visuallyhidden">Dictionary web app</h1>
-        <Form error={error} setError={setError} setWordData={setWordData} />
-        {wordData && <Data error={error} wordData={wordData} />}
+        <Form setError={setError} setWordData={setWordData} />
+        {wordData && !error && <Data wordData={wordData} />}
+        {error && <ErrorComponent />}
       </main>
     </div>
   );

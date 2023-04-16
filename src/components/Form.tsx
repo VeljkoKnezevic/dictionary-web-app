@@ -3,11 +3,11 @@ import { DataTypes } from "../DataTypes";
 
 type FormData = {
   setWordData: React.Dispatch<SetStateAction<DataTypes | undefined>>;
-  error: boolean;
+
   setError: React.Dispatch<SetStateAction<boolean>>;
 };
 
-const Form = ({ setWordData, error, setError }: FormData) => {
+const Form = ({ setWordData, setError }: FormData) => {
   const [empty, setEmpty] = useState<boolean>(false);
 
   const fetchData = async (search: string) => {
